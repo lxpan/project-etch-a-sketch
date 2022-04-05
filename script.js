@@ -9,7 +9,6 @@ const DEFAULT_ROWS = 16;
 const DEFAULT_COLUMNS = 16;
 const GRID_WIDTH = 960;
 
-gridContainer = document.querySelector('.gridContainer');
 
 function createGrid(numRows, numColumns) {
     rowLoop:
@@ -28,9 +27,11 @@ function createGrid(numRows, numColumns) {
     }
 }
 
+
 function addHoverEffect(evt) {
     evt.target.classList.add("hoverEffect");
 }
+
 
 function resetGrid() {
     // delete all grid nodes
@@ -54,6 +55,7 @@ function resetGrid() {
     createGrid(userRows, userRows);
 }
 
+gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
 
 resetButton = document.querySelector('.resetButton');
