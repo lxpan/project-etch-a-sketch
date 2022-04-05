@@ -11,13 +11,11 @@ const GRID_WIDTH = 960;
 
 
 function createGrid(numRows, numColumns) {
-    rowLoop:
     for(i = 0; i < numRows; i++) {
         rowDiv = document.createElement('div');
         rowDiv.classList.add('rowDiv');
         gridContainer.appendChild(rowDiv);
     
-        columnLoop:
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
@@ -54,6 +52,7 @@ function resetGrid() {
 
     createGrid(userRows, userRows);
 }
+
 
 gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
