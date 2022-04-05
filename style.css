@@ -18,3 +18,7 @@
 .columnDiv:hover {
     background-color: aquamarine;
 }
+
+.resetButton {
+    padding: 5px;
+}
