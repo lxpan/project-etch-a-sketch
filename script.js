@@ -14,12 +14,14 @@ function createGrid(numRows, numColumns) {
     for(let i = 0; i < numRows; i++) {
         rowDiv = document.createElement('div');
         rowDiv.classList.add('rowDiv');
+        
         gridContainer.appendChild(rowDiv);
     
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
             columnDiv.addEventListener('mouseover', addHoverEffect);
+            
             rowDiv.appendChild(columnDiv);
         }
     }
