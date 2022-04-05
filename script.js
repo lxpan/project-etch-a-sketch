@@ -10,20 +10,22 @@ const COLUMNS = 16;
 
 gridContainer = document.querySelector('.gridContainer');
 
-rowLoop:
-for(i = 0; i < ROWS; i++) {
-    rowDiv = document.createElement('div');
-    rowDiv.classList.add('rowDiv');
-    gridContainer.appendChild(rowDiv);
-
-    columnLoop:
-    for(let j = 0; j < COLUMNS; j++) {
-        columnDiv = document.createElement('div');
-        columnDiv.classList.add('columnDiv');
-        // columnDiv.textContent = `(${i}, ${j})`;
-        // columnDiv.textContent = 'T';
-        rowDiv.appendChild(columnDiv);
+function createGrid(numRows, numColumns) {
+    rowLoop:
+    for(i = 0; i < numRows; i++) {
+        rowDiv = document.createElement('div');
+        rowDiv.classList.add('rowDiv');
+        gridContainer.appendChild(rowDiv);
+    
+        columnLoop:
+        for(let j = 0; j < numColumns; j++) {
+            columnDiv = document.createElement('div');
+            columnDiv.classList.add('columnDiv');
+            // columnDiv.textContent = `(${i}, ${j})`;
+            // columnDiv.textContent = 'T';
+            rowDiv.appendChild(columnDiv);
+        }
     }
 }
 
-// console.log(rowDiv);
+createGrid(ROWS, COLUMNS);
