@@ -5,20 +5,24 @@
     Set d to flexbox (evenly spaced)
 */
 
+const ROWS = 16;
 const COLUMNS = 16;
 
 gridContainer = document.querySelector('.gridContainer');
 
-rowDiv = document.createElement('div');
-rowDiv.classList.add('rowDiv');
-gridContainer.appendChild(rowDiv);
+rowLoop:
+for(i = 0; i < ROWS; i++) {
+    rowDiv = document.createElement('div');
+    rowDiv.classList.add('rowDiv');
+    gridContainer.appendChild(rowDiv);
 
-console.log(rowDiv);
-
-for(let i = 0; i <= COLUMNS; i++) {
-    columnDiv = document.createElement('div');
-    columnDiv.textContent = 'C';
-    rowDiv.appendChild(columnDiv);
+    columnLoop:
+    for(let j = 0; j < COLUMNS; j++) {
+        columnDiv = document.createElement('div');
+        columnDiv.classList.add('columnDiv');
+        columnDiv.textContent = `(${i}, ${j})`;
+        rowDiv.appendChild(columnDiv);
+    }
 }
 
-console.log(rowDiv);
+// console.log(rowDiv);
