@@ -31,4 +31,17 @@ function addHoverEffect(evt) {
     evt.target.classList.add("hoverEffect");
 }
 
+function resetGrid() {
+    // delete all grid nodes
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+
+    createGrid(ROWS, COLUMNS);
+}
+
 createGrid(ROWS, COLUMNS);
+
+resetButton = document.querySelector('.resetButton');
+resetButton.addEventListener('click', resetGrid);
+
