@@ -11,7 +11,7 @@ const GRID_WIDTH = 960;
 
 
 function createGrid(numRows, numColumns) {
-    for(i = 0; i < numRows; i++) {
+    for(let i = 0; i < numRows; i++) {
         rowDiv = document.createElement('div');
         rowDiv.classList.add('rowDiv');
         gridContainer.appendChild(rowDiv);
