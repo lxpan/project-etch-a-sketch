@@ -1,0 +1,15 @@
+.gridContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.rowDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.rowColumn {
+    display: flex;
+}
+
