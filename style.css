@@ -2,16 +2,18 @@
     display: flex;
     flex-direction: column;
     width: 960px;
+    height: 960px;
 }
 
 .rowDiv {
     display: flex;
+    flex: 1;
     flex-direction: row;
 }
 
 .columnDiv {
     display: flex;
-    padding: 30px;
+    flex: 1;
     background-color: gray;
 }
 
