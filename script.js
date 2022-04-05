@@ -21,7 +21,7 @@ for(i = 0; i < ROWS; i++) {
         columnDiv = document.createElement('div');
         columnDiv.classList.add('columnDiv');
         // columnDiv.textContent = `(${i}, ${j})`;
-        columnDiv.textContent = 'T';
+        // columnDiv.textContent = 'T';
         rowDiv.appendChild(columnDiv);
     }
 }
