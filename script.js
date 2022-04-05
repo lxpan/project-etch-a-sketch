@@ -21,11 +21,14 @@ function createGrid(numRows, numColumns) {
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
-            // columnDiv.textContent = `(${i}, ${j})`;
-            // columnDiv.textContent = 'T';
+            columnDiv.addEventListener('mouseover', addHoverEffect);
             rowDiv.appendChild(columnDiv);
         }
     }
+}
+
+function addHoverEffect(evt) {
+    evt.target.classList.add("hoverEffect");
 }
 
 createGrid(ROWS, COLUMNS);
