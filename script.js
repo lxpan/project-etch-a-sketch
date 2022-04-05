@@ -20,7 +20,8 @@ for(i = 0; i < ROWS; i++) {
     for(let j = 0; j < COLUMNS; j++) {
         columnDiv = document.createElement('div');
         columnDiv.classList.add('columnDiv');
-        columnDiv.textContent = `(${i}, ${j})`;
+        // columnDiv.textContent = `(${i}, ${j})`;
+        columnDiv.textContent = 'T';
         rowDiv.appendChild(columnDiv);
     }
 }
