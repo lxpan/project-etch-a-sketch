@@ -5,8 +5,9 @@
     Set d to flexbox (evenly spaced)
 */
 
-const ROWS = 16;
-const COLUMNS = 16;
+const DEFAULT_ROWS = 16;
+const DEFAULT_COLUMNS = 16;
+const GRID_WIDTH = 960;
 
 gridContainer = document.querySelector('.gridContainer');
 
@@ -37,11 +38,12 @@ function resetGrid() {
         gridContainer.removeChild(gridContainer.firstChild);
     }
 
-    createGrid(ROWS, COLUMNS);
+    userRows = parseInt(prompt("How many rows & columns (type one number)?"));
+
+    createGrid(userRows, userRows);
 }
 
-createGrid(ROWS, COLUMNS);
+createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
 
 resetButton = document.querySelector('.resetButton');
 resetButton.addEventListener('click', resetGrid);
-
