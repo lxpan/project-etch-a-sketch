@@ -38,7 +38,18 @@ function resetGrid() {
         gridContainer.removeChild(gridContainer.firstChild);
     }
 
-    userRows = parseInt(prompt("How many rows & columns (type one number)?"));
+    let userRows = '';
+
+    // check for appropriate user input
+    while(isNaN(userRows) || userRows > 100 || userRows <= 0) {
+        userRows = parseInt(prompt("How many rows & columns (type one number)?"));
+        
+        if(isNaN(userRows)) {
+            userRows = parseInt(prompt("Please enter a number."));
+        } else if(userRows > 100) {
+            userRows = parseInt(prompt("Please enter a number not exceeding 100."));
+        }
+    }
 
     createGrid(userRows, userRows);
 }
