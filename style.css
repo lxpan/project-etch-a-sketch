@@ -3,6 +3,8 @@
     flex-direction: column;
     width: 960px;
     height: 960px;
+    border: solid 4px;
+    border-color: black;
 }
 
 .rowDiv {
@@ -14,7 +16,6 @@
 .columnDiv {
     display: flex;
     flex: 1;
-    background-color: gray;
 }
 
 .hoverEffect {
