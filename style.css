@@ -9,7 +9,11 @@
     justify-content: space-evenly;
 }
 
-.rowColumn {
+.columnDiv {
     display: flex;
+    padding: 10px;
 }
 
+.columnDiv:hover {
+    background-color: aquamarine;
+}
