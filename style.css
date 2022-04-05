@@ -13,12 +13,11 @@ body {
 .rowDiv {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
 }
 
 .columnDiv {
     display: flex;
-    padding: 10px;
+    padding: 30px;
 }
 
 .columnDiv:hover {
