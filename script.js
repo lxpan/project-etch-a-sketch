@@ -57,6 +57,22 @@ function darkenColor(evt) {
     evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
 }
 
+function lightenColor(evt) {
+    let currentRGB = evt.target.style.backgroundColor;
+    let rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
+
+    for(let i = 0; i < rgbArr.length; i++) {
+        // increase RGB value by 10% of distance to 255
+        if(rgbArr[i] == 255 || rgbArr[i] * 1.1 == 255) {
+            continue;
+        } else {
+            rgbArr[i] = 1.1 * rgbArr[i];
+        }  
+    }
+    
+    evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
+}
+
 function resetGrid() {
     // delete all grid nodes
     while (gridContainer.firstChild) {
@@ -108,6 +124,15 @@ function activateEraserButton() {
     });
 }
 
+function activateLightButton() {
+    columnDiv = document.querySelectorAll('.columnDiv')
+    columnDiv.forEach(div => {
+        divClone = div.cloneNode()
+        divClone.addEventListener('mouseover', lightenColor);
+        div.parentNode.replaceChild(divClone, div);
+    });
+}
+
 function activateShadeButton() {
     columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
@@ -131,7 +156,10 @@ function setupButtonEventListeners() {
     eraserButton.addEventListener('click', activateEraserButton);
     
     shadeButton = document.querySelector('.shadeButton');
-    shadeButton.addEventListener('click', activateShadeButton);    
+    shadeButton.addEventListener('click', activateShadeButton);
+
+    lightButton = document.querySelector('.lightButton');
+    lightButton.addEventListener('click', activateLightButton);    
 }
 
 
@@ -141,3 +169,5 @@ gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
 
 setupButtonEventListeners()
+
+
