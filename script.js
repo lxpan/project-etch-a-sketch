@@ -88,6 +88,7 @@ function activateRainbowButton() {
     columnDiv.forEach(div => {
         div.removeEventListener('mouseover', mouseOverOptionFunc);
         div.addEventListener('mouseover', changeColorRainbow);
+        mouseOverOptionFunc = changeColorRainbow;
     });
 }
 
@@ -96,6 +97,7 @@ function activateDefaultButton() {
     columnDiv.forEach(div => {
         div.removeEventListener('mouseover', mouseOverOptionFunc);
         div.addEventListener('mouseover', changeColorDefault);
+        mouseOverOptionFunc = changeColorDefault;
     });
 }
 
@@ -104,6 +106,7 @@ function activateEraserButton() {
     columnDiv.forEach(div => {
         div.removeEventListener('mouseover', mouseOverOptionFunc);
         div.addEventListener('mouseover', changeColorEraser);
+        mouseOverOptionFunc = changeColorEraser;
     });
 }
 
