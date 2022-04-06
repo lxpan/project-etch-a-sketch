@@ -37,7 +37,6 @@ function changeColorEraser(evt) {
 }
 
 function changeColorRainbow(evt) {
-    // console.log(evt.target);
     // randomise from 0 - 255
     let r = Math.floor(Math.random() * (255 + 1));
     let g = Math.floor(Math.random() * (255 + 1));
@@ -56,8 +55,6 @@ function darkenColor(evt) {
     }
     
     evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
-    // evt.target.style.backgroundColor = `rgb(255, 0, 0)`;
-    console.log(currentRGB);
 }
 
 function resetGrid() {
