@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     width: 960px;
     height: 960px;
-    border: solid 3px;
+    border: solid 2px;
     border-color: black;
 }
 
@@ -52,7 +52,7 @@ h1 {
 .menu {
     display: flex;
     flex-direction: column;
-    border: solid 3px;
+    border: solid 2px;
     border-color: black;
     width: 200px;
     margin-right: 30px;
