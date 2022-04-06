@@ -38,28 +38,28 @@ function changeColorEraser(evt) {
 
 function changeColorRainbow(evt) {
     let rgbArr = '';
-    if(evt.target.style.backgroundColor == '') {
-        // randomise from 0 - 255
-        let r = Math.floor(Math.random() * (255 + 1));
-        let g = Math.floor(Math.random() * (255 + 1));
-        let b = Math.floor(Math.random() * (255 + 1));
+    // console.log(evt.target);
+    // randomise from 0 - 255
+    let r = Math.floor(Math.random() * (255 + 1));
+    let g = Math.floor(Math.random() * (255 + 1));
+    let b = Math.floor(Math.random() * (255 + 1));
 
-        // evt.target.classList.add("hoverEffect");
-        evt.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    }
-    else {
-        let currentRGB = evt.target.style.backgroundColor;
-        rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
-
-        for(let i = 0; i < rgbArr.length; i++) {
-            rgbArr[i] = rgbArr[i] - Math.ceil(rgbArr[i] * 0.1);
-        }
-        
-        // console.log(rgbArr);
-        evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
-    }
+    // evt.target.classList.add("hoverEffect");
+    evt.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
+function darkenColor(evt) {
+    let currentRGB = evt.target.style.backgroundColor;
+    let rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
+
+    for(let i = 0; i < rgbArr.length; i++) {
+        rgbArr[i] = rgbArr[i] - Math.ceil(rgbArr[i] * 0.1);
+    }
+    
+    evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
+    // evt.target.style.backgroundColor = `rgb(255, 0, 0)`;
+    console.log(currentRGB);
+}
 
 function resetGrid() {
     // delete all grid nodes
@@ -84,7 +84,7 @@ function resetGrid() {
 }
 
 function activateRainbowButton() {
-    columnDiv = gridContainer.querySelectorAll('.columnDiv')
+    columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
         div.removeEventListener('mouseover', mouseOverOptionFunc);
         div.addEventListener('mouseover', changeColorRainbow);
@@ -93,7 +93,7 @@ function activateRainbowButton() {
 }
 
 function activateDefaultButton() {
-    columnDiv = gridContainer.querySelectorAll('.columnDiv')
+    columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
         div.removeEventListener('mouseover', mouseOverOptionFunc);
         div.addEventListener('mouseover', changeColorDefault);
@@ -102,11 +102,20 @@ function activateDefaultButton() {
 }
 
 function activateEraserButton() {
-    columnDiv = gridContainer.querySelectorAll('.columnDiv')
+    columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
         div.removeEventListener('mouseover', mouseOverOptionFunc);
         div.addEventListener('mouseover', changeColorEraser);
         mouseOverOptionFunc = changeColorEraser;
+    });
+}
+
+function activateShadeButton() {
+    columnDiv = document.querySelectorAll('.columnDiv')
+    columnDiv.forEach(div => {
+        div.removeEventListener('mouseover', mouseOverOptionFunc);
+        div.addEventListener('mouseover', darkenColor);
+        mouseOverOptionFunc = darkenColor;
     });
 }
 
@@ -128,3 +137,6 @@ rainbowButton.addEventListener('click', activateRainbowButton);
 
 eraserButton = document.querySelector('.eraserButton');
 eraserButton.addEventListener('click', activateEraserButton);
+
+shadeButton = document.querySelector('.shadeButton');
+shadeButton.addEventListener('click', activateShadeButton);
