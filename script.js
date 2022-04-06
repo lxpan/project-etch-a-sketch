@@ -62,8 +62,8 @@ function lightenColor(evt) {
     let rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
 
     for(let i = 0; i < rgbArr.length; i++) {
-        // increase RGB value by 10% of distance to 255
-        if(rgbArr[i] == 255 || rgbArr[i] * 1.1 == 255) {
+        // stop short of 255 in each colour channel
+        if(rgbArr[i] == 255 || rgbArr[i] * 1.1 >= 255) {
             continue;
         } else {
             rgbArr[i] = 1.1 * rgbArr[i];
