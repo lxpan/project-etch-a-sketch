@@ -25,8 +25,16 @@ body {
     flex: 1;
 }
 
-.resetButton {
-    padding: 5px;
+button {
+    padding: 10px;
+    background-color: skyblue;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold
+}
+
+button:hover {
+    background-color: aquamarine;
 }
 
 h1 {
