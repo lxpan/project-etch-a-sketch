@@ -28,6 +28,14 @@ function createGrid(numRows, numColumns) {
 }
 
 
+function changeColorDefault(evt) {
+    evt.target.style.backgroundColor = 'black';
+}
+
+function changeColorEraser(evt) {
+    evt.target.style.backgroundColor = '';
+}
+
 function changeColorRainbow(evt) {
     let rgbArr = '';
     if(evt.target.style.backgroundColor == '') {
