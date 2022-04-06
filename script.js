@@ -91,6 +91,14 @@ function activateRainbowButton() {
     });
 }
 
+function activateDefaultButton() {
+    columnDiv = gridContainer.querySelectorAll('.columnDiv')
+    columnDiv.forEach(div => {
+        div.removeEventListener('mouseover', mouseOverOptionFunc);
+        div.addEventListener('mouseover', changeColorDefault);
+    });
+}
+
 
 let mouseOverOptionFunc = changeColorDefault;
 
@@ -101,10 +109,7 @@ resetButton = document.querySelector('.resetButton');
 resetButton.addEventListener('click', resetGrid);
 
 defaultButton = document.querySelector('.defaultButton');
-defaultButton.addEventListener('click', () => {
-    mouseOverOptionFunc = changeColorDefault;
-});
+defaultButton.addEventListener('click', activateDefaultButton);
 
 rainbowButton = document.querySelector('.rainbowButton');
 rainbowButton.addEventListener('click', activateRainbowButton);
-
