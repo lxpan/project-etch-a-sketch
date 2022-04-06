@@ -37,7 +37,6 @@ function changeColorEraser(evt) {
 }
 
 function changeColorRainbow(evt) {
-    let rgbArr = '';
     // console.log(evt.target);
     // randomise from 0 - 255
     let r = Math.floor(Math.random() * (255 + 1));
@@ -86,8 +85,10 @@ function resetGrid() {
 function activateRainbowButton() {
     columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
-        div.removeEventListener('mouseover', mouseOverOptionFunc);
-        div.addEventListener('mouseover', changeColorRainbow);
+        divClone = div.cloneNode()
+        divClone.addEventListener('mouseover', changeColorRainbow);
+        div.parentNode.replaceChild(divClone, div);
+
         mouseOverOptionFunc = changeColorRainbow;
     });
 }
@@ -121,7 +122,7 @@ function activateShadeButton() {
 
 
 
-let mouseOverOptionFunc = changeColorDefault;
+let mouseOverOptionFunc;
 
 gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
