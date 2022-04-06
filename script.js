@@ -20,7 +20,7 @@ function createGrid(numRows, numColumns) {
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
-            columnDiv.addEventListener('mouseover', addHoverEffect);
+            columnDiv.addEventListener('mouseover', addHoverEffectHex);
             
             rowDiv.appendChild(columnDiv);
         }
@@ -28,10 +28,18 @@ function createGrid(numRows, numColumns) {
 }
 
 
-function addHoverEffect(evt) {
-    evt.target.classList.add("hoverEffect");
-}
+// function addHoverEffectHex(evt) {
+//     let hexAlpha = "0123456789abcdef";
+//     let hash = '#';
 
+//     for(let i = 0; i < 6; i++) {
+//         idx = Math.floor(Math.random() * hexAlpha.length);
+//         hash += hexAlpha[idx]
+//     }
+
+//     // evt.target.classList.add("hoverEffect");
+//     evt.target.style.backgroundColor = hash;
+// }
 
 function resetGrid() {
     // delete all grid nodes
