@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     width: 960px;
     height: 960px;
-    border: solid 4px;
+    border: solid 3px;
     border-color: black;
 }
 
@@ -33,4 +33,19 @@ body {
 h1 {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    border: solid 3px;
+    border-color: black;
+    width: 200px;
+    margin-right: 100px;
 }
