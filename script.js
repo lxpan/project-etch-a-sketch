@@ -96,30 +96,29 @@ function activateRainbowButton() {
 function activateDefaultButton() {
     columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
-        div.removeEventListener('mouseover', mouseOverOptionFunc);
-        div.addEventListener('mouseover', changeColorDefault);
-        mouseOverOptionFunc = changeColorDefault;
+        divClone = div.cloneNode()
+        divClone.addEventListener('mouseover', changeColorDefault);
+        div.parentNode.replaceChild(divClone, div);
     });
 }
 
 function activateEraserButton() {
     columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
-        div.removeEventListener('mouseover', mouseOverOptionFunc);
-        div.addEventListener('mouseover', changeColorEraser);
-        mouseOverOptionFunc = changeColorEraser;
+        divClone = div.cloneNode()
+        divClone.addEventListener('mouseover', changeColorEraser);
+        div.parentNode.replaceChild(divClone, div);
     });
 }
 
 function activateShadeButton() {
     columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
-        div.removeEventListener('mouseover', mouseOverOptionFunc);
-        div.addEventListener('mouseover', darkenColor);
-        mouseOverOptionFunc = darkenColor;
+        divClone = div.cloneNode()
+        divClone.addEventListener('mouseover', darkenColor);
+        div.parentNode.replaceChild(divClone, div);
     });
 }
-
 
 
 let mouseOverOptionFunc;
