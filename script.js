@@ -47,24 +47,11 @@ function changeColorOnMouseOver(evt) {
             rgbArr[i] = rgbArr[i] - Math.ceil(rgbArr[i] * 0.1);
         }
         
-        console.log(rgbArr);
+        // console.log(rgbArr);
         evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
     }
 }
 
-
-// function addHoverEffectHex(evt) {
-//     let hexAlpha = "0123456789abcdef";
-//     let hash = '#';
-
-//     for(let i = 0; i < 6; i++) {
-//         idx = Math.floor(Math.random() * hexAlpha.length);
-//         hash += hexAlpha[idx]
-//     }
-
-//     // evt.target.classList.add("hoverEffect");
-//     evt.target.style.backgroundColor = hash;
-// }
 
 function resetGrid() {
     // delete all grid nodes
