@@ -99,6 +99,15 @@ function activateDefaultButton() {
     });
 }
 
+function activateEraserButton() {
+    columnDiv = gridContainer.querySelectorAll('.columnDiv')
+    columnDiv.forEach(div => {
+        div.removeEventListener('mouseover', mouseOverOptionFunc);
+        div.addEventListener('mouseover', changeColorEraser);
+    });
+}
+
+
 
 let mouseOverOptionFunc = changeColorDefault;
 
@@ -113,3 +122,6 @@ defaultButton.addEventListener('click', activateDefaultButton);
 
 rainbowButton = document.querySelector('.rainbowButton');
 rainbowButton.addEventListener('click', activateRainbowButton);
+
+eraserButton = document.querySelector('.eraserButton');
+eraserButton.addEventListener('click', activateEraserButton);
