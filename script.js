@@ -44,7 +44,7 @@ function changeColorOnMouseOver(evt) {
         rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
 
         for(let i = 0; i < rgbArr.length; i++) {
-            rgbArr[i] = rgbArr[i] * 0.9
+            rgbArr[i] = rgbArr[i] - Math.ceil(rgbArr[i] * 0.1);
         }
         
         console.log(rgbArr);
