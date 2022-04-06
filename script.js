@@ -84,7 +84,7 @@ function resetGrid() {
 }
 
 
-let mouseOverOptionFunc = changeColorRainbow;
+let mouseOverOptionFunc = changeColorDefault;
 
 gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
