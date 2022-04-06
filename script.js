@@ -20,7 +20,7 @@ function createGrid(numRows, numColumns) {
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
-            columnDiv.addEventListener('mouseover', changeColorOnMouseOver);
+            columnDiv.addEventListener('mouseover', mouseOverOptionFunc);
             
             rowDiv.appendChild(columnDiv);
         }
@@ -28,7 +28,7 @@ function createGrid(numRows, numColumns) {
 }
 
 
-function changeColorOnMouseOver(evt) {
+function changeColorRainbow(evt) {
     let rgbArr = '';
     if(evt.target.style.backgroundColor == '') {
         // randomise from 0 - 255
@@ -75,6 +75,8 @@ function resetGrid() {
     createGrid(userRows, userRows);
 }
 
+
+let mouseOverOptionFunc = changeColorRainbow;
 
 gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
