@@ -7,7 +7,7 @@
 
 const DEFAULT_ROWS = 16;
 const DEFAULT_COLUMNS = 16;
-const GRID_WIDTH = 960;
+const GRID_WIDTH = 720;
 
 
 function createGrid(numRows, numColumns) {

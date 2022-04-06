@@ -8,8 +8,8 @@ body {
 .gridContainer {
     display: flex;
     flex-direction: column;
-    width: 960px;
-    height: 960px;
+    width: 720px;
+    height: 720px;
     border: solid 2px;
     border-color: black;
 }
