@@ -29,6 +29,7 @@ function createGrid(numRows, numColumns) {
 
 
 function changeColorOnMouseOver(evt) {
+    let rgbArr = '';
     if(evt.target.style.backgroundColor == '') {
         // randomise from 0 - 255
         let r = Math.floor(Math.random() * (255 + 1));
@@ -37,6 +38,17 @@ function changeColorOnMouseOver(evt) {
 
         // evt.target.classList.add("hoverEffect");
         evt.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }
+    else {
+        let currentRGB = evt.target.style.backgroundColor;
+        rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
+
+        for(let i = 0; i < rgbArr.length; i++) {
+            rgbArr[i] = rgbArr[i] * 0.9
+        }
+        
+        console.log(rgbArr);
+        evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
     }
 }
 
