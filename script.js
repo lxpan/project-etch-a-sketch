@@ -20,10 +20,23 @@ function createGrid(numRows, numColumns) {
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
-            columnDiv.addEventListener('mouseover', addHoverEffectHex);
+            columnDiv.addEventListener('mouseover', changeColorOnMouseOver);
             
             rowDiv.appendChild(columnDiv);
         }
+    }
+}
+
+
+function changeColorOnMouseOver(evt) {
+    if(evt.target.style.backgroundColor == '') {
+        // randomise from 0 - 255
+        let r = Math.floor(Math.random() * (255 + 1));
+        let g = Math.floor(Math.random() * (255 + 1));
+        let b = Math.floor(Math.random() * (255 + 1));
+
+        // evt.target.classList.add("hoverEffect");
+        evt.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     }
 }
 
