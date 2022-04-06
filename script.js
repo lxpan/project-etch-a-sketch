@@ -83,6 +83,14 @@ function resetGrid() {
     createGrid(userRows, userRows);
 }
 
+function activateRainbowButton() {
+    columnDiv = gridContainer.querySelectorAll('.columnDiv')
+    columnDiv.forEach(div => {
+        div.removeEventListener('mouseover', mouseOverOptionFunc);
+        div.addEventListener('mouseover', changeColorRainbow);
+    });
+}
+
 
 let mouseOverOptionFunc = changeColorDefault;
 
@@ -91,3 +99,12 @@ createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
 
 resetButton = document.querySelector('.resetButton');
 resetButton.addEventListener('click', resetGrid);
+
+defaultButton = document.querySelector('.defaultButton');
+defaultButton.addEventListener('click', () => {
+    mouseOverOptionFunc = changeColorDefault;
+});
+
+rainbowButton = document.querySelector('.rainbowButton');
+rainbowButton.addEventListener('click', activateRainbowButton);
+
