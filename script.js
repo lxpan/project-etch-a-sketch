@@ -120,23 +120,27 @@ function activateShadeButton() {
     });
 }
 
+function setupButtonEventListeners() {
+    resetButton = document.querySelector('.resetButton');
+    resetButton.addEventListener('click', resetGrid);
+    
+    defaultButton = document.querySelector('.defaultButton');
+    defaultButton.addEventListener('click', activateDefaultButton);
+    
+    rainbowButton = document.querySelector('.rainbowButton');
+    rainbowButton.addEventListener('click', activateRainbowButton);
+    
+    eraserButton = document.querySelector('.eraserButton');
+    eraserButton.addEventListener('click', activateEraserButton);
+    
+    shadeButton = document.querySelector('.shadeButton');
+    shadeButton.addEventListener('click', activateShadeButton);    
+}
+
 
 let mouseOverOptionFunc = changeColorDefault;
 
 gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
 
-resetButton = document.querySelector('.resetButton');
-resetButton.addEventListener('click', resetGrid);
-
-defaultButton = document.querySelector('.defaultButton');
-defaultButton.addEventListener('click', activateDefaultButton);
-
-rainbowButton = document.querySelector('.rainbowButton');
-rainbowButton.addEventListener('click', activateRainbowButton);
-
-eraserButton = document.querySelector('.eraserButton');
-eraserButton.addEventListener('click', activateEraserButton);
-
-shadeButton = document.querySelector('.shadeButton');
-shadeButton.addEventListener('click', activateShadeButton);
+setupButtonEventListeners()
