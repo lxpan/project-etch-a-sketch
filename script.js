@@ -18,7 +18,6 @@ function createGrid(numRows, numColumns) {
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
-            // columnDiv.addEventListener('mouseover', mouseOverOptionFunc);
             columnDiv.addEventListener('mouseover', defaultButtonFunction);    
             
             rowDiv.appendChild(columnDiv);
@@ -126,8 +125,6 @@ function defaultButtonFunction(evt) {
 }
 
 function activateButton(evt) {
-    console.log(window[evt.target.className + "Function"]);
-
     columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
         divClone = div.cloneNode()
@@ -141,7 +138,6 @@ function setupButtonEventListeners() {
 
     buttons.forEach(button => {
         if(button.className != 'resetButton') {
-            // console.log(button.className);
             button.addEventListener('click', activateButton);
         }
     })
