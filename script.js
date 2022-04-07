@@ -34,7 +34,7 @@ function changeColorDefault(evt) {
     evt.target.style.backgroundColor = 'black';
 }
 
-function changeColorEraser(evt) {
+function eraserButtonFunction(evt) {
     evt.target.style.backgroundColor = '';
 }
 
@@ -48,7 +48,7 @@ function rainbowButtonFunction(evt) {
     evt.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
-function darkenColor(evt) {
+function shadeButtonFunction(evt) {
     let currentRGB = evt.target.style.backgroundColor;
     let rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
 
@@ -59,7 +59,7 @@ function darkenColor(evt) {
     evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
 }
 
-function lightenColor(evt) {
+function lightButtonFunction(evt) {
     let currentRGB = evt.target.style.backgroundColor;
     let rgbArr = currentRGB.substring(4, currentRGB.length-1).replace(/ /g, '').split(',');
 
@@ -198,13 +198,13 @@ function setupButtonEventListeners() {
     rainbowButton.addEventListener('click', activateButton);
     
     eraserButton = document.querySelector('.eraserButton');
-    eraserButton.addEventListener('click', activateEraserButton);
+    eraserButton.addEventListener('click', activateButton);
     
     shadeButton = document.querySelector('.shadeButton');
-    shadeButton.addEventListener('click', activateShadeButton);
+    shadeButton.addEventListener('click', activateButton);
 
     lightButton = document.querySelector('.lightButton');
-    lightButton.addEventListener('click', activateLightButton);    
+    lightButton.addEventListener('click', activateButton);    
 }
 
 
