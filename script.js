@@ -21,14 +21,12 @@ function createGrid(numRows, numColumns) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
             // columnDiv.addEventListener('mouseover', mouseOverOptionFunc);
+            columnDiv.addEventListener('mouseover', defaultButtonFunction);    
             
             rowDiv.appendChild(columnDiv);
         }
     }
-
-    activateDefaultButton();
 }
-
 
 function changeColorDefault(evt) {
     evt.target.style.backgroundColor = 'black';
@@ -132,57 +130,6 @@ function activateButton(evt) {
     columnDiv.forEach(div => {
         divClone = div.cloneNode()
         divClone.addEventListener('mouseenter', window[evt.target.className + "Function"]);
-        div.parentNode.replaceChild(divClone, div);
-    });
-}
-
-function activateDefaultButton() {
-    function defaultModeMouseDown(evt) {
-        window.onmousedown = () => {
-            isMouseDown = true;
-            evt.target.style.backgroundColor = 'black';
-        }
-        
-        window.onmouseup = () => {
-            isMouseDown = false;
-        }
-        
-        if(isMouseDown) {
-            evt.target.style.backgroundColor = 'black';
-        }
-    }
-
-    columnDiv = document.querySelectorAll('.columnDiv')
-    columnDiv.forEach(div => {
-        divClone = div.cloneNode()
-        divClone.addEventListener('mouseenter', defaultModeMouseDown);
-        div.parentNode.replaceChild(divClone, div);
-    });
-}
-
-function activateEraserButton() {
-    columnDiv = document.querySelectorAll('.columnDiv')
-    columnDiv.forEach(div => {
-        divClone = div.cloneNode()
-        divClone.addEventListener('mouseover', changeColorEraser);
-        div.parentNode.replaceChild(divClone, div);
-    });
-}
-
-function activateLightButton() {
-    columnDiv = document.querySelectorAll('.columnDiv')
-    columnDiv.forEach(div => {
-        divClone = div.cloneNode()
-        divClone.addEventListener('mouseover', lightenColor);
-        div.parentNode.replaceChild(divClone, div);
-    });
-}
-
-function activateShadeButton() {
-    columnDiv = document.querySelectorAll('.columnDiv')
-    columnDiv.forEach(div => {
-        divClone = div.cloneNode()
-        divClone.addEventListener('mouseover', darkenColor);
         div.parentNode.replaceChild(divClone, div);
     });
 }
