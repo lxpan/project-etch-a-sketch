@@ -38,7 +38,7 @@ function changeColorEraser(evt) {
     evt.target.style.backgroundColor = '';
 }
 
-function changeColorRainbow(evt) {
+function rainbowButtonFunction(evt) {
     // randomise from 0 - 255
     let r = Math.floor(Math.random() * (255 + 1));
     let g = Math.floor(Math.random() * (255 + 1));
@@ -192,11 +192,10 @@ function setupButtonEventListeners() {
     resetButton.addEventListener('click', resetGrid);
     
     defaultButton = document.querySelector('.defaultButton');
-    // defaultButton.addEventListener('click', activateDefaultButton);
     defaultButton.addEventListener('click', activateButton);
     
     rainbowButton = document.querySelector('.rainbowButton');
-    rainbowButton.addEventListener('click', activateRainbowButton);
+    rainbowButton.addEventListener('click', activateButton);
     
     eraserButton = document.querySelector('.eraserButton');
     eraserButton.addEventListener('click', activateEraserButton);
