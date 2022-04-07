@@ -31,7 +31,10 @@ function changeColorDefault(evt) {
 }
 
 function eraserButtonFunction(evt) {
-    evt.target.style.backgroundColor = '';
+    mouseLogicWrapper( () => {
+        evt.target.style.backgroundColor = '';
+    });
+    
 }
 
 function rainbowButtonFunction(evt) {
@@ -40,8 +43,9 @@ function rainbowButtonFunction(evt) {
     let g = Math.floor(Math.random() * (255 + 1));
     let b = Math.floor(Math.random() * (255 + 1));
 
-    // evt.target.classList.add("hoverEffect");
-    evt.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    mouseLogicWrapper( () => {
+        evt.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    });
 }
 
 function shadeButtonFunction(evt) {
@@ -51,8 +55,10 @@ function shadeButtonFunction(evt) {
     for(let i = 0; i < rgbArr.length; i++) {
         rgbArr[i] = rgbArr[i] - Math.ceil(rgbArr[i] * 0.1);
     }
-    
-    evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
+
+    mouseLogicWrapper( () => {
+        evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
+    });
 }
 
 function lightButtonFunction(evt) {
@@ -67,8 +73,10 @@ function lightButtonFunction(evt) {
             rgbArr[i] = 1.1 * rgbArr[i];
         }  
     }
-    
-    evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
+
+    mouseLogicWrapper( () => {
+        evt.target.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`;
+    });
 }
 
 function resetGrid() {
