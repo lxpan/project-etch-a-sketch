@@ -109,6 +109,33 @@ function activateRainbowButton() {
 }
 
 let isMouseDown;
+
+function defaultButtonFunction(evt) {
+    window.onmousedown = () => {
+        isMouseDown = true;
+        evt.target.style.backgroundColor = 'black';
+    }
+    
+    window.onmouseup = () => {
+        isMouseDown = false;
+    }
+    
+    if(isMouseDown) {
+        evt.target.style.backgroundColor = 'black';
+    }
+}
+
+function activateButton(evt) {
+    console.log(window[evt.target.className + "Function"]);
+
+    columnDiv = document.querySelectorAll('.columnDiv')
+    columnDiv.forEach(div => {
+        divClone = div.cloneNode()
+        divClone.addEventListener('mouseenter', window[evt.target.className + "Function"]);
+        div.parentNode.replaceChild(divClone, div);
+    });
+}
+
 function activateDefaultButton() {
     function defaultModeMouseDown(evt) {
         window.onmousedown = () => {
@@ -165,7 +192,8 @@ function setupButtonEventListeners() {
     resetButton.addEventListener('click', resetGrid);
     
     defaultButton = document.querySelector('.defaultButton');
-    defaultButton.addEventListener('click', activateDefaultButton);
+    // defaultButton.addEventListener('click', activateDefaultButton);
+    defaultButton.addEventListener('click', activateButton);
     
     rainbowButton = document.querySelector('.rainbowButton');
     rainbowButton.addEventListener('click', activateRainbowButton);
