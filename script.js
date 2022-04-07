@@ -95,17 +95,6 @@ function resetGrid() {
     createGrid(userRows, userRows);
 }
 
-function activateRainbowButton() {
-    columnDiv = document.querySelectorAll('.columnDiv')
-    columnDiv.forEach(div => {
-        divClone = div.cloneNode()
-        divClone.addEventListener('mouseover', changeColorRainbow);
-        div.parentNode.replaceChild(divClone, div);
-
-        mouseOverOptionFunc = changeColorRainbow;
-    });
-}
-
 let isMouseDown;
 
 function defaultButtonFunction(evt) {
@@ -161,5 +150,3 @@ gridContainer = document.querySelector('.gridContainer');
 createGrid(DEFAULT_ROWS, DEFAULT_COLUMNS);
 
 setupButtonEventListeners()
-
-
