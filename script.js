@@ -124,23 +124,17 @@ function activateButton(evt) {
 }
 
 function setupButtonEventListeners() {
+    buttons = document.querySelectorAll('button');
+
+    buttons.forEach(button => {
+        if(button.className != 'resetButton') {
+            // console.log(button.className);
+            button.addEventListener('click', activateButton);
+        }
+    })
+
     resetButton = document.querySelector('.resetButton');
     resetButton.addEventListener('click', resetGrid);
-    
-    defaultButton = document.querySelector('.defaultButton');
-    defaultButton.addEventListener('click', activateButton);
-    
-    rainbowButton = document.querySelector('.rainbowButton');
-    rainbowButton.addEventListener('click', activateButton);
-    
-    eraserButton = document.querySelector('.eraserButton');
-    eraserButton.addEventListener('click', activateButton);
-    
-    shadeButton = document.querySelector('.shadeButton');
-    shadeButton.addEventListener('click', activateButton);
-
-    lightButton = document.querySelector('.lightButton');
-    lightButton.addEventListener('click', activateButton);    
 }
 
 
