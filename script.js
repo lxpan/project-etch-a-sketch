@@ -96,15 +96,15 @@ function resetGrid() {
 let isMouseDown;
 
 function defaultButtonFunction(evt) {
-    window.onmousedown = () => {
+    gridContainer.onmouseup = () => {
+        isMouseDown = false;
+    }
+
+    gridContainer.onmousedown = () => {
         isMouseDown = true;
         evt.target.style.backgroundColor = 'black';
     }
-    
-    window.onmouseup = () => {
-        isMouseDown = false;
-    }
-    
+
     if(isMouseDown) {
         evt.target.style.backgroundColor = 'black';
     }
