@@ -20,11 +20,13 @@ function createGrid(numRows, numColumns) {
         for(let j = 0; j < numColumns; j++) {
             columnDiv = document.createElement('div');
             columnDiv.classList.add('columnDiv');
-            columnDiv.addEventListener('mouseover', mouseOverOptionFunc);
+            // columnDiv.addEventListener('mouseover', mouseOverOptionFunc);
             
             rowDiv.appendChild(columnDiv);
         }
     }
+
+    activateDefaultButton();
 }
 
 
@@ -107,11 +109,11 @@ function activateRainbowButton() {
 }
 
 let isMouseDown;
-
 function activateDefaultButton() {
     function defaultModeMouseDown(evt) {
         window.onmousedown = () => {
             isMouseDown = true;
+            evt.target.style.backgroundColor = 'black';
         }
         
         window.onmouseup = () => {
