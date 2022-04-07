@@ -106,11 +106,27 @@ function activateRainbowButton() {
     });
 }
 
+let isMouseDown;
+
 function activateDefaultButton() {
+    function defaultModeMouseDown(evt) {
+        window.onmousedown = () => {
+            isMouseDown = true;
+        }
+        
+        window.onmouseup = () => {
+            isMouseDown = false;
+        }
+        
+        if(isMouseDown) {
+            evt.target.style.backgroundColor = 'black';
+        }
+    }
+
     columnDiv = document.querySelectorAll('.columnDiv')
     columnDiv.forEach(div => {
         divClone = div.cloneNode()
-        divClone.addEventListener('mouseover', changeColorDefault);
+        divClone.addEventListener('mouseenter', defaultModeMouseDown);
         div.parentNode.replaceChild(divClone, div);
     });
 }
