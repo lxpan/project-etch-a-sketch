@@ -95,19 +95,26 @@ function resetGrid() {
 
 let isMouseDown;
 
-function defaultButtonFunction(evt) {
+// adds 'hold and draw' functionality to supplied draw function
+function mouseLogicWrapper(drawFunction) {
     gridContainer.onmouseup = () => {
         isMouseDown = false;
     }
 
     gridContainer.onmousedown = () => {
         isMouseDown = true;
-        evt.target.style.backgroundColor = 'black';
+        drawFunction();
     }
 
     if(isMouseDown) {
-        evt.target.style.backgroundColor = 'black';
+        drawFunction();
     }
+}
+
+function defaultButtonFunction(evt) {
+    mouseLogicWrapper( () => {
+        evt.target.style.backgroundColor = 'black';
+    });
 }
 
 function activateButton(evt) {
